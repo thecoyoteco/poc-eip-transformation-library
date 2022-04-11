@@ -1,0 +1,355 @@
+{
+  "variantReport": {
+    "$": {
+      "xmlns": "http://foundationmedicine.com/compbio/variant-report-external",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "disease": "Other",
+      "disease-ontology": "Uterus endometrial adenocarcinoma papillary serous",
+      "flowcell-analysis": "16647",
+      "gender": "female",
+      "pathology-diagnosis": "Uterus endometrial adenocarcinoma papillary serous",
+      "percent-tumor-nuclei": "60",
+      "pipeline-version": "v2.9.8.1",
+      "purity-assessment": "57.70",
+      "specimen": "USZ0007292",
+      "study": "USZ Clinical  T7",
+      "test-request": "USZ0007292",
+      "test-type": "FoundationOne",
+      "tissue-of-origin": "Soft Tissue",
+      "xsi:schemaLocation": "http://foundationmedicine.com/compbio/variant-report-external http://integration.foundationmedicine.com/reporting/variant-report-external-2.2.xsd"
+    },
+    "samples": [
+      {
+        "sample": [
+          {
+            "$": {
+              "bait-set": "T7",
+              "mean-exon-depth": "1123.04",
+              "name": "uszMPL-00037_Side_A_D1",
+              "nucleic-acid-type": "DNA"
+            }
+          }
+        ]
+      }
+    ],
+    "quality-control": [
+      {
+        "$": {
+          "status": "Pass"
+        }
+      }
+    ],
+    "short-variants": [
+      {
+        "short-variant": [
+          {
+            "$": {
+              "allele-fraction": "0.5120",
+              "cds-effect": "2299G>A",
+              "depth": "1422",
+              "equivocal": "false",
+              "functional-effect": "missense",
+              "gene": "ARID1B",
+              "percent-reads": "51.20",
+              "position": "chr6:157431662",
+              "protein-effect": "A767T",
+              "status": "unknown",
+              "strand": "+",
+              "transcript": "NM_017519"
+            },
+            "dna-evidence": [
+              {
+                "$": {
+                  "sample": "uszMPL-00037_Side_A_D1"
+                }
+              }
+            ]
+          },
+          {
+            "$": {
+              "allele-fraction": "0.2733",
+              "cds-effect": "2641G>A",
+              "depth": "1105",
+              "equivocal": "false",
+              "functional-effect": "missense",
+              "gene": "BCORL1",
+              "percent-reads": "27.33",
+              "position": "chrX:129149389",
+              "protein-effect": "V881M",
+              "status": "unknown",
+              "strand": "+",
+              "transcript": "NM_021946"
+            },
+            "dna-evidence": [
+              {
+                "$": {
+                  "sample": "uszMPL-00037_Side_A_D1"
+                }
+              }
+            ]
+          },
+          {
+            "$": {
+              "allele-fraction": "0.3840",
+              "cds-effect": "844C>G",
+              "depth": "1250",
+              "equivocal": "false",
+              "functional-effect": "missense",
+              "gene": "TP53",
+              "percent-reads": "38.40",
+              "position": "chr17:7577094",
+              "protein-effect": "R282G",
+              "status": "known",
+              "strand": "-",
+              "transcript": "NM_000546"
+            },
+            "dna-evidence": [
+              {
+                "$": {
+                  "sample": "uszMPL-00037_Side_A_D1"
+                }
+              }
+            ]
+          },
+          {
+            "$": {
+              "allele-fraction": "0.4829",
+              "cds-effect": "6919C>T",
+              "depth": "1025",
+              "equivocal": "false",
+              "functional-effect": "missense",
+              "gene": "ATM",
+              "percent-reads": "48.29",
+              "position": "chr11:108196896",
+              "protein-effect": "L2307F",
+              "status": "unknown",
+              "strand": "+",
+              "transcript": "NM_000051"
+            },
+            "dna-evidence": [
+              {
+                "$": {
+                  "sample": "uszMPL-00037_Side_A_D1"
+                }
+              }
+            ]
+          },
+          {
+            "$": {
+              "allele-fraction": "0.2952",
+              "cds-effect": "504G>T",
+              "depth": "1389",
+              "equivocal": "false",
+              "functional-effect": "missense",
+              "gene": "INHBA",
+              "percent-reads": "29.52",
+              "position": "chr7:41730025",
+              "protein-effect": "R168S",
+              "status": "unknown",
+              "strand": "-",
+              "transcript": "NM_002192"
+            },
+            "dna-evidence": [
+              {
+                "$": {
+                  "sample": "uszMPL-00037_Side_A_D1"
+                }
+              }
+            ]
+          },
+          {
+            "$": {
+              "allele-fraction": "0.5013",
+              "cds-effect": "946G>A",
+              "depth": "744",
+              "equivocal": "false",
+              "functional-effect": "missense",
+              "gene": "PDGFRB",
+              "percent-reads": "50.13",
+              "position": "chr5:149512494",
+              "protein-effect": "V316M",
+              "status": "unknown",
+              "strand": "-",
+              "transcript": "NM_002609"
+            },
+            "dna-evidence": [
+              {
+                "$": {
+                  "sample": "uszMPL-00037_Side_A_D1"
+                }
+              }
+            ]
+          },
+          {
+            "$": {
+              "allele-fraction": "0.2658",
+              "cds-effect": "327_328insACAGTGGTGCGGGACAAGGCAGTG",
+              "depth": "1234",
+              "equivocal": "false",
+              "functional-effect": "nonframeshift",
+              "gene": "PPP2R1A",
+              "percent-reads": "26.58",
+              "position": "chr19:52714569",
+              "protein-effect": "V109_E110insTVVRDKAV",
+              "status": "unknown",
+              "strand": "+",
+              "transcript": "NM_014225"
+            },
+            "dna-evidence": [
+              {
+                "$": {
+                  "sample": "uszMPL-00037_Side_A_D1"
+                }
+              }
+            ]
+          },
+          {
+            "$": {
+              "allele-fraction": "0.5022",
+              "cds-effect": "3920T>A",
+              "depth": "1340",
+              "equivocal": "false",
+              "functional-effect": "missense",
+              "gene": "APC",
+              "percent-reads": "50.22",
+              "position": "chr5:112175211",
+              "protein-effect": "I1307K",
+              "status": "known",
+              "strand": "+",
+              "transcript": "NM_000038"
+            },
+            "dna-evidence": [
+              {
+                "$": {
+                  "sample": "uszMPL-00037_Side_A_D1"
+                }
+              }
+            ]
+          },
+          {
+            "$": {
+              "allele-fraction": "0.4929",
+              "cds-effect": "1072G>T",
+              "depth": "1191",
+              "equivocal": "false",
+              "functional-effect": "missense",
+              "gene": "PIK3CG",
+              "percent-reads": "49.29",
+              "position": "chr7:106509078",
+              "protein-effect": "D358Y",
+              "status": "unknown",
+              "strand": "+",
+              "transcript": "NM_002649"
+            },
+            "dna-evidence": [
+              {
+                "$": {
+                  "sample": "uszMPL-00037_Side_A_D1"
+                }
+              }
+            ]
+          },
+          {
+            "$": {
+              "allele-fraction": "0.4459",
+              "cds-effect": "1624G>A",
+              "depth": "1045",
+              "equivocal": "false",
+              "functional-effect": "missense",
+              "gene": "PIK3CA",
+              "percent-reads": "44.59",
+              "position": "chr3:178936082",
+              "protein-effect": "E542K",
+              "status": "known",
+              "strand": "+",
+              "transcript": "NM_006218"
+            },
+            "dna-evidence": [
+              {
+                "$": {
+                  "sample": "uszMPL-00037_Side_A_D1"
+                }
+              }
+            ]
+          },
+          {
+            "$": {
+              "allele-fraction": "0.5338",
+              "cds-effect": "50C>T",
+              "depth": "755",
+              "equivocal": "false",
+              "functional-effect": "missense",
+              "gene": "ERBB4",
+              "percent-reads": "53.38",
+              "position": "chr2:213403205",
+              "protein-effect": "A17V",
+              "status": "unknown",
+              "strand": "-",
+              "transcript": "NM_005235"
+            },
+            "dna-evidence": [
+              {
+                "$": {
+                  "sample": "uszMPL-00037_Side_A_D1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "copy-number-alterations": [
+      ""
+    ],
+    "rearrangements": [
+      {
+        "rearrangement": [
+          {
+            "$": {
+              "description": "MCL1(NM_021960) rearrangement exon 2",
+              "equivocal": "false",
+              "in-frame": "unknown",
+              "other-gene": "N/A",
+              "pos1": "chr1:150550574-150550856",
+              "pos2": "chr5:204134-204543",
+              "status": "unknown",
+              "supporting-read-pairs": "282",
+              "targeted-gene": "MCL1",
+              "type": "rearrangement"
+            },
+            "dna-evidence": [
+              {
+                "$": {
+                  "sample": "uszMPL-00037_Side_A_D1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "biomarkers": [
+      {
+        "microsatellite-instability": [
+          {
+            "$": {
+              "status": "MSS"
+            }
+          }
+        ],
+        "tumor-mutation-burden": [
+          {
+            "$": {
+              "score": "3.51",
+              "status": "low",
+              "unit": "mutations-per-megabase"
+            }
+          }
+        ]
+      }
+    ],
+    "non-human-content": [
+      ""
+    ]
+  }
+}

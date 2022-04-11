@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "eip-transformation-library": "^1.0.0",
+    "eip-transformation-library": "^1.0.1",
     "fs": "^0.0.1-security"
   }
 }

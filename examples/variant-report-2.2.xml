@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--downconverted from variant report schema version 2.10--><!--downconverted from variant report schema version 2.9.2--><!--downconverted from variant report schema version 2.9.1--><!--downconverted from variant report schema version 2.9--><!--downconverted from variant report schema version 2.8--><!--downconverted from variant report schema version 2.7.1--><!--downconverted from variant report schema version 2.7--><!--downconverted from variant report schema version 2.6--><!--downconverted from variant report schema version 2.5--><!--downconverted from variant report schema version 2.4--><!--downconverted from variant report schema version 2.3-->
+<vr:variant-report xmlns:vr="http://foundationmedicine.com/compbio/variant-report" disease="Other" disease-ontology="Uterus endometrial adenocarcinoma papillary serous" flowcell-analysis="16647" gender="female" novelty-score="0" pathology-diagnosis="Uterus endometrial adenocarcinoma papillary serous" percent-tumor-nuclei="60" pipeline-version="v2.9.8.1" purity-assessment="57.70" reportable-variants-detected="true" specimen="USZ0007292" specimen-id="885230" study="USZ Clinical  T7" test-request="USZ0007292" test-type="FoundationOne" tissue-of-origin="Soft Tissue" tumor-type="Uterus" version="1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://foundationmedicine.com/compbio/variant-report https://compbio.foundationmedicine.com/xsd/variant-report-2.2.xsd">
+  <vr:samples>
+    <vr:sample bait-set="T7" mean-exon-depth="1123.04" name="uszMPL-00037_Side_A_D1" nucleic-acid-type="DNA"/>
+  </vr:samples>
+  <vr:quality-control hold="false" status="Pass">
+    <vr:metrics>
+      <vr:metric criterion="total:&lt;3;reportable:0" name="Reference called variants" status="Pass" value="0;0"/>
+      <vr:metric criterion="&gt;=99%" name="Reference QC SNPs detected" status="Pass" value="100.0%"/>
+      <vr:metric criterion="&gt;=30%" name="Tumor fraction" status="Pass" value="60%"/>
+    </vr:metrics>
+    <vr:sample-quality-set>
+      <vr:sample-quality sample="uszMPL-00037_Side_A_D1" status="Pass">
+        <vr:metrics>
+          <vr:metric criterion="&gt;20%" name="Computational purity" status="Pass" value="57.70%"/>
+          <vr:metric criterion="F" name="Gender" status="Pass" value="F"/>
+          <vr:metric criterion="&gt;=95%" name="Coverage &gt;100X" status="Pass" value="99.90%"/>
+          <vr:metric criterion="&lt;1%" name="Contamination" status="Pass" value="NA"/>
+          <vr:metric criterion="&lt;0.08%" name="Indel rate" status="Pass" value="0.009%"/>
+          <vr:metric criterion="&lt;2" name="Plate gender mismatch" status="Pass" value="0"/>
+          <vr:metric criterion="&lt;1%" name="Error" status="Pass" value="0.19%"/>
+          <vr:metric criterion="0" name="Known mutations missed" status="Pass" value="3"/>
+          <vr:metric criterion="&lt;0.26" name="Reference coverage CV" status="Pass" value="0.2400"/>
+          <vr:metric criterion="&gt;=250" name="Median coverage" status="Pass" value="1078"/>
+          <vr:metric criterion="&gt;=250" name="Reference median coverage" status="Pass" value="830"/>
+        </vr:metrics>
+      </vr:sample-quality>
+    </vr:sample-quality-set>
+    <vr:flags/>
+  </vr:quality-control>
+  <vr:pertinent-genes/>
+  <vr:aggregate-features/>
+  <vr:short-variants>
+    <vr:short-variant actionability="E" allele-fraction="0.5120" cds-effect="2299G&gt;A" clinical="true" depth="1422" equivocal="false" functional-effect="missense" gene="ARID1B" novelty-score="0" percent-reads="51.20" position="chr6:157431662" protein-effect="A767T" status="unknown" strand="+" transcript="NM_017519">
+      <vr:dna-evidence sample="uszMPL-00037_Side_A_D1"/>
+    </vr:short-variant>
+    <vr:short-variant actionability="E" allele-fraction="0.2815" cds-effect="10297G&gt;C" clinical="false" depth="1055" equivocal="false" functional-effect="missense" gene="TRRAP" novelty-score="0" percent-reads="28.15" position="chr7:98601929" protein-effect="E3433Q" status="unknown" strand="+" transcript="NM_003496">
+      <vr:dna-evidence sample="uszMPL-00037_Side_A_D1"/>
+    </vr:short-variant>
+    <vr:short-variant actionability="E" allele-fraction="0.2733" cds-effect="2641G&gt;A" clinical="true" depth="1105" equivocal="false" functional-effect="missense" gene="BCORL1" novelty-score="0" percent-reads="27.33" position="chrX:129149389" protein-effect="V881M" status="unknown" strand="+" transcript="NM_021946">
+      <vr:dna-evidence sample="uszMPL-00037_Side_A_D1"/>
+    </vr:short-variant>
+    <vr:short-variant actionability="D" allele-fraction="0.3840" cds-effect="844C&gt;G" clinical="true" depth="1250" equivocal="false" functional-effect="missense" gene="TP53" novelty-score="0" percent-reads="38.40" position="chr17:7577094" protein-effect="R282G" status="known" strand="-" transcript="NM_000546">
+      <vr:dna-evidence sample="uszMPL-00037_Side_A_D1"/>
+    </vr:short-variant>
+    <vr:short-variant actionability="C" allele-fraction="0.4829" cds-effect="6919C&gt;T" clinical="true" depth="1025" equivocal="false" functional-effect="missense" gene="ATM" novelty-score="0" percent-reads="48.29" position="chr11:108196896" protein-effect="L2307F" status="unknown" strand="+" transcript="NM_000051">
+      <vr:dna-evidence sample="uszMPL-00037_Side_A_D1"/>
+    </vr:short-variant>
+    <vr:short-variant actionability="E" allele-fraction="0.2952" cds-effect="504G&gt;T" clinical="true" depth="1389" equivocal="false" functional-effect="missense" gene="INHBA" novelty-score="0" percent-reads="29.52" position="chr7:41730025" protein-effect="R168S" status="unknown" strand="-" transcript="NM_002192">
+      <vr:dna-evidence sample="uszMPL-00037_Side_A_D1"/>
+    </vr:short-variant>
+    <vr:short-variant actionability="A" allele-fraction="0.5013" cds-effect="946G&gt;A" clinical="true" depth="744" equivocal="false" functional-effect="missense" gene="PDGFRB" novelty-score="0" percent-reads="50.13" position="chr5:149512494" protein-effect="V316M" status="unknown" strand="-" transcript="NM_002609">
+      <vr:dna-evidence sample="uszMPL-00037_Side_A_D1"/>
+    </vr:short-variant>
+    <vr:short-variant actionability="E" allele-fraction="0.2658" cds-effect="327_328insACAGTGGTGCGGGACAAGGCAGTG" clinical="true" depth="1234" equivocal="false" functional-effect="nonframeshift" gene="PPP2R1A" novelty-score="0" percent-reads="26.58" position="chr19:52714569" protein-effect="V109_E110insTVVRDKAV" status="unknown" strand="+" transcript="NM_014225">
+      <vr:dna-evidence sample="uszMPL-00037_Side_A_D1"/>
+    </vr:short-variant>
+    <vr:short-variant actionability="E" allele-fraction="0.5022" cds-effect="3920T&gt;A" clinical="true" depth="1340" equivocal="false" functional-effect="missense" gene="APC" novelty-score="0" percent-reads="50.22" position="chr5:112175211" protein-effect="I1307K" status="known" strand="+" transcript="NM_000038">
+      <vr:dna-evidence sample="uszMPL-00037_Side_A_D1"/>
+    </vr:short-variant>
+    <vr:short-variant actionability="E" allele-fraction="0.4929" cds-effect="1072G&gt;T" clinical="true" depth="1191" equivocal="false" functional-effect="missense" gene="PIK3CG" novelty-score="0" percent-reads="49.29" position="chr7:106509078" protein-effect="D358Y" status="unknown" strand="+" transcript="NM_002649">
+      <vr:dna-evidence sample="uszMPL-00037_Side_A_D1"/>
+    </vr:short-variant>
+    <vr:short-variant actionability="B" allele-fraction="0.4459" cds-effect="1624G&gt;A" clinical="true" depth="1045" equivocal="false" functional-effect="missense" gene="PIK3CA" novelty-score="0" percent-reads="44.59" position="chr3:178936082" protein-effect="E542K" status="known" strand="+" transcript="NM_006218">
+      <vr:dna-evidence sample="uszMPL-00037_Side_A_D1"/>
+    </vr:short-variant>
+    <vr:short-variant actionability="A" allele-fraction="0.5338" cds-effect="50C&gt;T" clinical="true" depth="755" equivocal="false" functional-effect="missense" gene="ERBB4" novelty-score="0" percent-reads="53.38" position="chr2:213403205" protein-effect="A17V" status="unknown" strand="-" transcript="NM_005235">
+      <vr:dna-evidence sample="uszMPL-00037_Side_A_D1"/>
+    </vr:short-variant>
+    <vr:short-variant actionability="F" allele-fraction="0.4407" cds-effect="773C&gt;A" clinical="false" depth="1146" equivocal="false" functional-effect="missense" gene="MERTK" novelty-score="0" percent-reads="44.07" position="chr2:112722783" protein-effect="A258E" status="unknown" strand="+" transcript="NM_006343">
+      <vr:dna-evidence sample="uszMPL-00037_Side_A_D1"/>
+    </vr:short-variant>
+  </vr:short-variants>
+  <vr:copy-number-alterations>
+    <vr:copy-number-alteration actionability="P" clinical="false" copy-number="0" equivocal="false" gene="PARP4" novelty-score="0" number-of-exons="2 of 33" position="chr13:25015980-25016840" ratio="0.50" status="unknown" type="loss">
+      <vr:comment>added</vr:comment>
+    </vr:copy-number-alteration>
+  </vr:copy-number-alterations>
+  <vr:rearrangements>
+    <vr:rearrangement actionability="C" clinical="true" description="MCL1(NM_021960) rearrangement exon 2" equivocal="false" in-frame="unknown" novelty-score="0" other-gene="N/A" pos1="chr1:150550574-150550856" pos2="chr5:204134-204543" status="unknown" supporting-read-pairs="282" targeted-gene="MCL1" type="rearrangement">
+      <vr:comment>Translocation: MCL1 (NM_021960): 3' rearrangement breakpoint exon 2</vr:comment>
+      <vr:dna-evidence sample="uszMPL-00037_Side_A_D1"/>
+    </vr:rearrangement>
+  </vr:rearrangements>
+  <vr:biomarkers>
+    <vr:microsatellite-instability clinical="true" score="1.8700" status="MSS"/>
+    <vr:tumor-mutation-burden clinical="true" score="3.51" status="low" unit="mutations-per-megabase"/>
+  </vr:biomarkers>
+  <vr:non-human-content/>
+  <vr:pharmacogenomic-snps>
+    <vr:pharmacogenomic-snp alternate-allele="C" clinical="false" depth="523" gene="SLC19A1" identifier="rs1051266" percent-alternate-allele="44" position="chr21:46957794" reference-allele="T"/>
+    <vr:pharmacogenomic-snp alternate-allele="G" clinical="false" depth="504" gene="SOD2" identifier="rs4880" percent-alternate-allele="48" position="chr6:160113872" reference-allele="A"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="290" gene="CYP2D6" identifier="rs3892097" percent-alternate-allele="100" position="chr22:42524947" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="562" gene="ABCB1" identifier="rs2032582" percent-alternate-allele="0" position="chr7:87160618" reference-allele="A"/>
+    <vr:pharmacogenomic-snp alternate-allele="A" clinical="false" depth="571" gene="ITPA" identifier="rs1127354" percent-alternate-allele="0" position="chr20:3193842" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="G" clinical="false" depth="426" gene="ABCC2" identifier="rs12762549" percent-alternate-allele="43" position="chr10:101620771" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="ATATATA" clinical="false" depth="890" gene="UGT1A1" identifier="rs67574270" percent-alternate-allele="0" position="chr2:234668882" reference-allele="A"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="314" gene="VEGFA" identifier="rs833061" percent-alternate-allele="0" position="chr6:43737486" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="A" clinical="false" depth="1298" gene="UGT1A1" identifier="rs10929302" percent-alternate-allele="60" position="chr2:234665782" reference-allele="G"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="996" gene="ESR2" identifier="rs4986938" percent-alternate-allele="99" position="chr14:64699816" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="651" gene="CYP3A5" identifier="rs10264272" percent-alternate-allele="0" position="chr7:99262835" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="G" clinical="false" depth="836" gene="ESR1" identifier="rs9340799" percent-alternate-allele="49" position="chr6:152163381" reference-allele="A"/>
+    <vr:pharmacogenomic-snp alternate-allele="A" clinical="false" depth="1009" gene="CYP2C8" identifier="rs11572103" percent-alternate-allele="0" position="chr10:96818106" reference-allele="T"/>
+    <vr:pharmacogenomic-snp alternate-allele="ATA" clinical="false" depth="1042" gene="UGT1A1" identifier="rs67574270" percent-alternate-allele="26" position="chr2:234668880" reference-allele="A"/>
+    <vr:pharmacogenomic-snp alternate-allele="G" clinical="false" depth="551" gene="ERCC2" identifier="rs13181" percent-alternate-allele="0" position="chr19:45854919" reference-allele="T"/>
+    <vr:pharmacogenomic-snp alternate-allele="C" clinical="false" depth="807" gene="DPYD" identifier="rs1801159" percent-alternate-allele="0" position="chr1:97981395" reference-allele="T"/>
+    <vr:pharmacogenomic-snp alternate-allele="C" clinical="false" depth="1073" gene="CYP2C8" identifier="rs1058930" percent-alternate-allele="0" position="chr10:96818119" reference-allele="G"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="721" gene="ABCC4" identifier="rs3765534" percent-alternate-allele="0" position="chr13:95815415" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="G" clinical="false" depth="993" gene="CYP3A4" identifier="rs4987161" percent-alternate-allele="0" position="chr7:99366081" reference-allele="A"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="313" gene="SULT1A1" identifier="rs1801030" percent-alternate-allele="100" position="chr16:28617485" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="A" clinical="false" depth="452" gene="NQO1" identifier="rs1800566" percent-alternate-allele="70" position="chr16:69745145" reference-allele="G"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="740" gene="DPYD" identifier="rs3918290" percent-alternate-allele="0" position="chr1:97915614" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="361" gene="CYP3A4" identifier="rs2740574" percent-alternate-allele="100" position="chr7:99382096" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="722" gene="CYP3A5" identifier="rs776746" percent-alternate-allele="0" position="chr7:99270539" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="858" gene="GSTP1" identifier="rs1138272" percent-alternate-allele="0" position="chr11:67353579" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="C" clinical="false" depth="562" gene="ABCB1" identifier="rs2032582" percent-alternate-allele="100" position="chr7:87160618" reference-allele="A"/>
+    <vr:pharmacogenomic-snp alternate-allele="C" clinical="false" depth="928" gene="UMPS" identifier="rs1801019" percent-alternate-allele="0" position="chr3:124456742" reference-allele="G"/>
+    <vr:pharmacogenomic-snp alternate-allele="C" clinical="false" depth="685" gene="SLC22A2" identifier="rs316019" percent-alternate-allele="0" position="chr6:160670282" reference-allele="A"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="602" gene="TPMT" identifier="rs1800584" percent-alternate-allele="0" position="chr6:18131012" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="C" clinical="false" depth="617" gene="LRP2" identifier="rs2075252" percent-alternate-allele="51" position="chr2:170010985" reference-allele="T"/>
+    <vr:pharmacogenomic-snp alternate-allele="ATATA" clinical="false" depth="885" gene="UGT1A1" identifier="rs67574270" percent-alternate-allele="0" position="chr2:234668880" reference-allele="A"/>
+    <vr:pharmacogenomic-snp alternate-allele="TCT" clinical="false" depth="664" gene="CYP2D6" identifier="rs28371720" percent-alternate-allele="0" position="chr22:42524178" reference-allele="T"/>
+    <vr:pharmacogenomic-snp alternate-allele="C" clinical="false" depth="994" gene="CYP3A4" identifier="rs12721627" percent-alternate-allele="0" position="chr7:99366093" reference-allele="G"/>
+    <vr:pharmacogenomic-snp alternate-allele="C" clinical="false" depth="781" gene="DPYD" identifier="rs2297595" percent-alternate-allele="0" position="chr1:98165091" reference-allele="T"/>
+    <vr:pharmacogenomic-snp alternate-allele="A" clinical="false" depth="1137" gene="UGT1A1" identifier="rs35350960" percent-alternate-allele="0" position="chr2:234669619" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="A" clinical="false" depth="534" gene="DPYD" identifier="rs1801265" percent-alternate-allele="100" position="chr1:98348885" reference-allele="G"/>
+    <vr:pharmacogenomic-snp alternate-allele="G" clinical="false" depth="652" gene="NRP2" identifier="rs10932125" percent-alternate-allele="53" position="chr2:206652300" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="C" clinical="false" depth="710" gene="TPMT" identifier="rs1142345" percent-alternate-allele="0" position="chr6:18130918" reference-allele="T"/>
+    <vr:pharmacogenomic-snp alternate-allele="A" clinical="false" depth="850" gene="CYP3A4" identifier="rs4986913" percent-alternate-allele="0" position="chr7:99358459" reference-allele="G"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="419" gene="CYP2D6" identifier="rs59421388" percent-alternate-allele="0" position="chr22:42523610" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="326" gene="SZRD1" identifier="rs6603859" percent-alternate-allele="51" position="chr1:16706075" reference-allele="G"/>
+    <vr:pharmacogenomic-snp alternate-allele="A" clinical="false" depth="1125" gene="UGT1A1" identifier="rs4148323" percent-alternate-allele="0" position="chr2:234669144" reference-allele="G"/>
+    <vr:pharmacogenomic-snp alternate-allele="G" clinical="false" depth="756" gene="VEGFA" identifier="rs2010963" percent-alternate-allele="100" position="chr6:43738350" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="G" clinical="false" depth="779" gene="UGT1A1" identifier="rs17868323" percent-alternate-allele="0" position="chr2:234590970" reference-allele="T"/>
+    <vr:pharmacogenomic-snp alternate-allele="G" clinical="false" depth="240" gene="SULT1A1" identifier="rs3760091" percent-alternate-allele="68" position="chr16:28620800" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="480" gene="TPMT" identifier="rs1800460" percent-alternate-allele="0" position="chr6:18139228" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="513" gene="CYP2D6" identifier="rs28371725" percent-alternate-allele="0" position="chr22:42523805" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="663" gene="CYP2D6" identifier="rs28371720" percent-alternate-allele="0" position="chr22:42524177" reference-allele="TT"/>
+    <vr:pharmacogenomic-snp alternate-allele="A" clinical="false" depth="885" gene="UGT1A1" identifier="rs67574270" percent-alternate-allele="0" position="chr2:234668880" reference-allele="ATA"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="829" gene="ABCB1" identifier="rs1045642" percent-alternate-allele="0" position="chr7:87138645" reference-allele="A"/>
+    <vr:pharmacogenomic-snp alternate-allele="C" clinical="false" depth="543" gene="VEGFA" identifier="rs699947" percent-alternate-allele="0" position="chr6:43736389" reference-allele="A"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="802" gene="ABCG2" identifier="rs2231142" percent-alternate-allele="52" position="chr4:89052323" reference-allele="G"/>
+    <vr:pharmacogenomic-snp alternate-allele="A" clinical="false" depth="894" gene="MTHFR" identifier="rs4846051" percent-alternate-allele="99" position="chr1:11854457" reference-allele="G"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="380" gene="SULT1A1" identifier="rs9282861" percent-alternate-allele="0" position="chr16:28617514" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="A" clinical="false" depth="303" gene="CYP2D6" identifier="rs28371706" percent-alternate-allele="0" position="chr22:42525772" reference-allele="G"/>
+    <vr:pharmacogenomic-snp alternate-allele="A" clinical="false" depth="646" gene="MTHFR" identifier="rs1801133" percent-alternate-allele="46" position="chr1:11856378" reference-allele="G"/>
+    <vr:pharmacogenomic-snp alternate-allele="C" clinical="false" depth="722" gene="CYP2C8" identifier="rs10509681" percent-alternate-allele="0" position="chr10:96798749" reference-allele="T"/>
+    <vr:pharmacogenomic-snp alternate-allele="A" clinical="false" depth="674" gene="CYP3A4" identifier="rs4986909" percent-alternate-allele="0" position="chr7:99359670" reference-allele="G"/>
+    <vr:pharmacogenomic-snp alternate-allele="G" clinical="false" depth="1152" gene="UGT1A1" identifier="rs4124874" percent-alternate-allele="59" position="chr2:234665659" reference-allele="T"/>
+    <vr:pharmacogenomic-snp alternate-allele="A" clinical="false" depth="278" gene="TYMS" identifier="rs11280056" percent-alternate-allele="0" position="chr18:673446" reference-allele="AAAGTTA"/>
+    <vr:pharmacogenomic-snp alternate-allele="C" clinical="false" depth="667" gene="FCGR3A" identifier="rs396991" percent-alternate-allele="0" position="chr1:161514542" reference-allele="A"/>
+    <vr:pharmacogenomic-snp alternate-allele="C" clinical="false" depth="671" gene="CYP2D6" identifier="rs5030656" percent-alternate-allele="0" position="chr22:42524175" reference-allele="CCTT"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="172" gene="SULT1A1" identifier="rs750155" percent-alternate-allele="0" position="chr16:28620572" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="G" clinical="false" depth="852" gene="CYP3A4" identifier="rs4986910" percent-alternate-allele="0" position="chr7:99358524" reference-allele="A"/>
+    <vr:pharmacogenomic-snp alternate-allele="G" clinical="false" depth="445" gene="CYP2D6" identifier="rs16947" percent-alternate-allele="99" position="chr22:42523943" reference-allele="A"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="811" gene="CYP3A4" identifier="rs4986907" percent-alternate-allele="0" position="chr7:99367427" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="G" clinical="false" depth="725" gene="CYP1B1" identifier="rs1056836" percent-alternate-allele="100" position="chr2:38298203" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="638" gene="CYP2C8" identifier="rs11572080" percent-alternate-allele="0" position="chr10:96827030" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="510" gene="CYP2D6" identifier="rs61736512" percent-alternate-allele="0" position="chr22:42525134" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="254" gene="CYP2C19" identifier="rs12248560" percent-alternate-allele="0" position="chr10:96521657" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="G" clinical="false" depth="520" gene="TPMT" identifier="rs1800462" percent-alternate-allele="0" position="chr6:18143955" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="T" clinical="false" depth="778" gene="MAN1B1" identifier="rs3750518" percent-alternate-allele="100" position="chr9:139982868" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="G" clinical="false" depth="765" gene="UGT1A1" identifier="rs7586110" percent-alternate-allele="0" position="chr2:234590527" reference-allele="T"/>
+    <vr:pharmacogenomic-snp alternate-allele="G" clinical="false" depth="829" gene="ABCB1" identifier="rs1045642" percent-alternate-allele="99" position="chr7:87138645" reference-allele="A"/>
+    <vr:pharmacogenomic-snp alternate-allele="G" clinical="false" depth="582" gene="GSTP1" identifier="rs1695" percent-alternate-allele="50" position="chr11:67352689" reference-allele="A"/>
+    <vr:pharmacogenomic-snp alternate-allele="G" clinical="false" depth="180" gene="VEGFA" identifier="rs1570360" percent-alternate-allele="0" position="chr6:43737830" reference-allele="A"/>
+    <vr:pharmacogenomic-snp alternate-allele="G" clinical="false" depth="845" gene="CYP3A4" identifier="rs4986908" percent-alternate-allele="0" position="chr7:99367392" reference-allele="C"/>
+    <vr:pharmacogenomic-snp alternate-allele="A" clinical="false" depth="444" gene="CYP2D6" identifier="rs1065852" percent-alternate-allele="100" position="chr22:42526694" reference-allele="G"/>
+    <vr:pharmacogenomic-snp alternate-allele="G" clinical="false" depth="1005" gene="MTHFR" identifier="rs1801131" percent-alternate-allele="0" position="chr1:11854476" reference-allele="T"/>
+    <vr:pharmacogenomic-snp alternate-allele="G" clinical="false" depth="684" gene="CYP3A4" identifier="rs12721634" percent-alternate-allele="0" position="chr7:99381661" reference-allele="A"/>
+    <vr:pharmacogenomic-snp alternate-allele="A" clinical="false" depth="593" gene="ABCG2" identifier="rs17731538" percent-alternate-allele="48" position="chr4:89055379" reference-allele="G"/>
+    <vr:pharmacogenomic-snp alternate-allele="A" clinical="false" depth="817" gene="FGFR4" identifier="rs351855" percent-alternate-allele="0" position="chr5:176520243" reference-allele="G"/>
+  </vr:pharmacogenomic-snps>
+</vr:variant-report>

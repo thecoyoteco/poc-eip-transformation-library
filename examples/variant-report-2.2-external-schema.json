@@ -1,0 +1,475 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "test",
+  "type": "object",
+  "definitions": {
+    "variantReport": {
+      "type": "object",
+      "properties": {
+        "standard-nucleic-acid-types": {
+          "type": "string",
+          "enum": [
+            "DNA",
+            "RNA"
+          ],
+          "example": "DNA"
+        },
+        "disease": {
+          "type": "string",
+          "example": "LUNG"
+        },
+        "gender": {
+          "type": "string",
+          "enum": [
+            "male",
+            "female"
+          ],
+          "example": "male"
+        },
+        "test-request": {
+          "type": "string",
+          "example": "ORD-0000000-01"
+        },
+        "flowcell-analysis": {
+          "type": "number",
+          "example": 2000000473
+        },
+        "tissue-of-origin": {
+          "type": "string",
+          "example": "Lymph Node"
+        },
+        "pathology-diagnosis": {
+          "type": "string",
+          "example": "Met. poorly diff. adenocarcinoma c/w pulmonary primary"
+        },
+        "study": {
+          "type": "string",
+          "example": "CLINICAL-F1CDx"
+        },
+        "disease-ontology": {
+          "type": "string",
+          "example": "Lung adenocarcinoma"
+        },
+        "pipeline-version": {
+          "type": "string",
+          "example": "QSR_F1Dx_v1.0.3"
+        },
+        "test-type": {
+          "type": "string",
+          "example": "FoundationOneDx"
+        },
+        "percent-tumor-nuclei": {
+          "type": "string",
+          "example": "30"
+        },
+        "purity-assessment": {
+          "type": "number",
+          "example": 10.1
+        },
+        "specimen": {
+          "type": "string",
+          "example": "ORD-0000000-01.01"
+        },
+        "samples": {
+          "type": "object",
+          "properties": {
+            "sample": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "SA-97330"
+                  },
+                  "tissue": {
+                    "type": "string",
+                    "example": "SA-97330"
+                  },
+                  "type": {
+                    "type": "string",
+                    "example": "SA-97330"
+                  },
+                  "mean-exon-depth": {
+                    "type": "number",
+                    "example": 1045.25
+                  },
+                  "bait-set": {
+                    "type": "string",
+                    "example": "DX1"
+                  },
+                  "nucleic-acid-type": {
+                    "type": "string",
+                    "enum": [
+                      "DNA",
+                      "RNA"
+                    ],
+                    "example": "DNA"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "quality-control": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "Pass",
+                "Fail",
+                "Qualified"
+              ],
+              "example": "Qualified"
+            }
+          }
+        },
+        "short-variants": {
+          "type": "object",
+          "properties": {
+            "short-variant": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "allof": [
+                  {
+                    "$ref": "#/definitions/variant-base-props"
+                  },
+                  {
+                    "$ref": "#/definitions/variant-evidence"
+                  },
+                  {
+                    "properties": {
+                      "cds-effect": {
+                        "type": "string",
+                        "example": "3004_3005insCA"
+                      },
+                      "depth": {
+                        "type": "number",
+                        "example": 972
+                      },
+                      "gene": {
+                        "type": "string",
+                        "example": "PIK3C2G"
+                      },
+                      "percent-reads": {
+                        "$ref": "#/definitions/percentage"
+                      },
+                      "allele-fraction": {
+                        "$ref": "#/definitions/fraction"
+                      },
+                      "position": {
+                        "type": "string",
+                        "example": "chr12:18656325"
+                      },
+                      "protein-effect": {
+                        "type": "string",
+                        "example": "N1002fs*4"
+                      },
+                      "transcript": {
+                        "type": "string",
+                        "example": "NM_004570"
+                      },
+                      "strand": {
+                        "type": "string",
+                        "enum": [
+                          "+",
+                          "-"
+                        ],
+                        "example": "+"
+                      },
+                      "functional-effect": {
+                        "type": "string",
+                        "example": "frameshift"
+                      },
+                      "subclonal": {
+                        "type": "string",
+                        "example": null
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "copy-number-alterations": {
+          "type": "object",
+          "properties": {
+            "copy-number-alteration": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "allof": [
+                  {
+                    "$ref": "#/definitions/variant-base-props"
+                  },
+                  {
+                    "$ref": "#/definitions/variant-evidence"
+                  },
+                  {
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "amplification",
+                          "partial amplification",
+                          "loss"
+                        ],
+                        "example": "amplification"
+                      },
+                      "copy-number": {
+                        "type": "string",
+                        "example": "8"
+                      },
+                      "gene": {
+                        "type": "string",
+                        "example": "KDR"
+                      },
+                      "number-of-exons": {
+                        "type": "string",
+                        "example": "30 of 30"
+                      },
+                      "position": {
+                        "type": "string",
+                        "example": "chr4:55896637-56038755"
+                      },
+                      "ratio": {
+                        "type": "number",
+                        "example": 1.68
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "rearrangements": {
+          "type": "object",
+          "properties": {
+            "rearrangement": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "allof": [
+                  {
+                    "$ref": "#/definitions/variant-base-props"
+                  },
+                  {
+                    "$ref": "#/definitions/variant-evidence"
+                  },
+                  {
+                    "properties": {
+                      "dnaEvidenceOrRnaEvidence": {
+                        "$ref": "#/definitions/dnaEvidenceOrRnaEvidence"
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "fusion",
+                          "rearrangement",
+                          "truncation",
+                          "deletion",
+                          "duplication",
+                          "unknown"
+                        ],
+                        "example": "fusion"
+                      },
+                      "in-frame": {
+                        "type": "string",
+                        "enum": [
+                          "Yes",
+                          "No",
+                          "unknown"
+                        ],
+                        "example": "Yes"
+                      },
+                      "targeted-gene": {
+                        "type": "string",
+                        "example": "RET"
+                      },
+                      "other-gene": {
+                        "type": "string",
+                        "example": "KIF5B"
+                      },
+                      "pos1": {
+                        "type": "string",
+                        "example": "chr10:43610351-43611136"
+                      },
+                      "pos2": {
+                        "type": "string",
+                        "example": "chr10:32316053-32316571"
+                      },
+                      "supporting-read-pairs": {
+                        "type": "number",
+                        "example": 103
+                      },
+                      "description": {
+                        "type": "string",
+                        "example": "RET(NM_020630)-KIF5B(NM_004521) fusion (R11; K16)"
+                      },
+                      "percent-reads": {
+                        "$ref": "#/definitions/percentage"
+                      },
+                      "allele-fraction": {
+                        "$ref": "#/definitions/fraction"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "biomarkers": {
+          "type": "object",
+          "properties": {
+            "microsatellite-instability": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "MSI-H",
+                    "MSI-L",
+                    "MSS",
+                    "unknown"
+                  ],
+                  "example": "unknown"
+                }
+              }
+            },
+            "tumor-mutation-burden": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "high",
+                    "intermediate",
+                    "low",
+                    "unknown"
+                  ],
+                  "example": "unknown"
+                },
+                "score": {
+                  "type": "number",
+                  "example": 5.04
+                },
+                "unit": {
+                  "type": "string",
+                  "example": "mutations-per-megabase"
+                }
+              }
+            }
+          }
+        },
+        "non-human-content": {
+          "type": "object",
+          "properties": {
+            "non-human": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "allof": [
+                  {
+                    "$ref": "#/definitions/variant-base-props"
+                  },
+                  {
+                    "$ref": "#/definitions/variant-evidence"
+                  },
+                  {
+                    "properties": {
+                      "organism": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "reads-per-million": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "status": {
+                        "type": "string",
+                        "enum": [
+                          "known",
+                          "likely",
+                          "unknown",
+                          "NA"
+                        ],
+                        "example": "unknown"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "variant-base-props": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "ambiguous",
+            "known",
+            "likely",
+            "unknown"
+          ],
+          "example": "unknown"
+        },
+        "equivocal": {
+          "type": "boolean",
+          "example": false
+        }
+      }
+    },
+    "variant-evidence": {
+      "type": "object",
+      "properties": {
+        "dnaEvidenceOrRnaEvidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "dna-evidence": {
+                "type": "object",
+                "properties": {
+                  "sample": {
+                    "type": "string",
+                    "example": "SA-97330"
+                  }
+                }
+              },
+              "rna-evidence": {
+                "type": "object",
+                "properties": {
+                  "sample": {
+                    "type": "string",
+                    "example": "SA-97345"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "percentage": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "example": 43.52
+    },
+    "fraction": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "example": 0.4352
+    }
+  }
+}

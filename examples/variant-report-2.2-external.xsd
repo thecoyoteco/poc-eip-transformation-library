@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="http://foundationmedicine.com/compbio/variant-report-external"
+        targetNamespace="http://foundationmedicine.com/compbio/variant-report-external"
+        elementFormDefault="qualified">
+
+  <element name="variant-report" type="tns:VariantReport">
+
+    <key name="SampleKey">
+      <selector xpath="tns:samples/tns:sample"/>
+      <field xpath="@name"/>
+    </key>
+
+    <!-- The sample quality items must reference specific samples. -->
+    <keyref name="SampleQualityRef" refer="tns:SampleKey">
+      <selector xpath="tns:quality-control/tns:sample-quality-set/tns:sample-quality"/>
+      <field xpath="@sample"/>
+    </keyref>
+
+    <!-- The sample quality items must be on unique samples. -->
+    <unique name="SampleQualityUnique">
+      <selector xpath="tns:quality-control/tns:sample-quality-set/tns:sample-quality"/>
+      <field xpath="@sample"/>
+    </unique>
+
+    <!-- Evidence must reference specific samples. -->
+    <keyref name="EvidenceSampleRef" refer="tns:SampleKey">
+      <!--
+        It would be great to be able to enforce that the referenced sample has the right nucleic acid type.
+        However, due to selector's restricted XPath, this might not be possible.
+        - failed strategy 1: composite key (using literal)
+          key SampleNucleicAcidKey on fields (@name, @nucleic-acid-type)
+          keyref DnaEvidenceSampleRef on fields (@sample, 'DNA')
+        - failed strategy 2: a key declaration per nucleic acid type (using attribute test)
+          key DnaSampleKey on selection "samples/sample[@nucleic-acid-type='DNA']"
+          keyref DnaEvidenceSampleRef refers to DnaSampleKey
+      -->
+      <selector xpath="*/*/tns:dna-evidence | */*/tns:rna-evidence"/>
+      <field xpath="@sample"/>
+    </keyref>
+
+  </element>
+
+  <element name="variant-reports">
+    <complexType>
+      <sequence>
+        <element ref="tns:variant-report" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+    </complexType>
+  </element>
+
+  <complexType name="VariantReport">
+    <sequence>
+      <element name="samples">
+        <complexType>
+          <sequence>
+            <element name="sample" type="tns:Sample" minOccurs="1" maxOccurs="unbounded"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="quality-control" type="tns:QualityControl"/>
+      <element name="short-variants">
+        <complexType>
+          <sequence>
+            <element name="short-variant" type="tns:ShortVariant" minOccurs="0" maxOccurs="unbounded">
+              <unique name="ShortVariantEvidenceUnique">
+                <selector xpath="tns:dna-evidence | tns:rna-evidence"/>
+                <field xpath="@sample"/>
+              </unique>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="copy-number-alterations">
+        <complexType>
+          <sequence>
+            <element name="copy-number-alteration" type="tns:CopyNumberAlteration" minOccurs="0" maxOccurs="unbounded">
+              <unique name="CopyNumberAlterationEvidenceUnique">
+                <selector xpath="tns:dna-evidence | tns:rna-evidence"/>
+                <field xpath="@sample"/>
+              </unique>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="rearrangements">
+        <complexType>
+          <sequence>
+            <element name="rearrangement" type="tns:Rearrangement" minOccurs="0" maxOccurs="unbounded">
+              <unique name="RearrangementEvidenceUnique">
+                <selector xpath="tns:dna-evidence | tns:rna-evidence"/>
+                <field xpath="@sample"/>
+              </unique>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="biomarkers" minOccurs="0" maxOccurs="1">
+        <complexType>
+          <sequence>
+            <element name="microsatellite-instability" type="tns:MicrosatelliteInstability" minOccurs="0"
+                     maxOccurs="1"/>
+            <element name="tumor-mutation-burden" type="tns:TumorMutationBurden" minOccurs="0" maxOccurs="1"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="non-human-content">
+        <complexType>
+          <sequence>
+            <element name="non-human" type="tns:NonHuman" minOccurs="0" maxOccurs="unbounded">
+              <unique name="NonHumanEvidenceUnique">
+                <selector xpath="tns:dna-evidence | tns:rna-evidence"/>
+                <field xpath="@sample"/>
+              </unique>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+    <attribute name="standard-nucleic-acid-types" type="tns:NucleicAcidTypeList"/>
+    <attribute name="disease" type="string"/>
+    <attribute name="gender" type="tns:Gender"/>
+    <attribute name="test-request" type="string"/>
+    <attribute name="flowcell-analysis" type="int"/>
+    <attribute name="tissue-of-origin" type="string"/>
+    <attribute name="pathology-diagnosis" type="string"/>
+    <attribute name="study" type="string"/>
+    <attribute name="disease-ontology" type="string"/>
+    <attribute name="pipeline-version" type="string"/>
+    <attribute name="test-type" type="string"/>
+    <attribute name="percent-tumor-nuclei" type="string"/>
+    <attribute name="purity-assessment" type="float"/>
+    <attribute name="specimen" type="string" use="required"/>
+  </complexType>
+
+  <complexType name="QualityControl">
+    <attribute name="status" type="tns:QualityControlStatus" use="required"/>
+  </complexType>
+
+  <simpleType name="QualityControlStatus">
+    <restriction base="string">
+      <enumeration value="Qualified"/>
+      <enumeration value="Pass"/>
+      <enumeration value="Fail"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="Gender">
+    <restriction base="string">
+      <enumeration value="male"/>
+      <enumeration value="female"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="Percent">
+    <restriction base="float">
+      <minInclusive value="0"/>
+      <maxInclusive value="100"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="Fraction">
+    <restriction base="float">
+      <minInclusive value="0"/>
+      <maxInclusive value="1"/>
+    </restriction>
+  </simpleType>
+
+  <complexType name="Sample">
+    <attribute name="name" type="string" use="required"/>
+    <attribute name="tissue" type="string"/>
+    <attribute name="type"/>
+    <attribute name="mean-exon-depth" type="float"/>
+    <attribute name="bait-set" type="string"/>
+    <attribute name="nucleic-acid-type" type="tns:NucleicAcidTypeEnum" use="required"/>
+  </complexType>
+
+  <complexType name="Variant">
+    <attribute name="status" type="tns:VariantStatus" use="required"/>
+    <attribute name="equivocal" type="boolean" default="false"/>
+  </complexType>
+
+  <simpleType name="VariantStatus">
+    <restriction base="string">
+      <enumeration value="ambiguous"/>
+      <enumeration value="known"/>
+      <enumeration value="likely"/>
+      <enumeration value="unknown"/>
+    </restriction>
+  </simpleType>
+
+  <complexType name="ShortVariant">
+    <complexContent>
+      <extension base="tns:Variant">
+        <choice minOccurs="0" maxOccurs="unbounded">
+          <element name="dna-evidence" type="tns:ShortVariantDnaEvidence"/>
+          <element name="rna-evidence" type="tns:ShortVariantRnaEvidence"/>
+        </choice>
+        <attribute name="cds-effect" type="string" use="required"/>
+        <attribute name="depth" type="int" use="required"/>
+        <attribute name="gene" type="string" use="required"/>
+        <attribute name="percent-reads" type="tns:Percent" use="required"/>
+        <attribute name="allele-fraction" type="tns:Fraction" use="required"/>
+        <attribute name="position" type="string" use="required"/>
+        <attribute name="protein-effect" type="string" use="required"/>
+        <attribute name="transcript" type="string"/>
+        <attribute name="strand" type="tns:Strand"/>
+        <attribute name="functional-effect" type="string"/>
+        <attribute name="subclonal" type="boolean" default="false"/>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <simpleType name="Strand">
+    <restriction base="string">
+      <enumeration value="+"/>
+      <enumeration value="-"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="CopyNumberAlterationType">
+    <restriction base="string">
+      <enumeration value="amplification"/>
+      <enumeration value="partial amplification"/>
+      <enumeration value="loss"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="InFrameType">
+    <restriction base="string">
+      <enumeration value="unknown"/>
+      <enumeration value="Yes"/>
+      <enumeration value="No"/>
+    </restriction>
+  </simpleType>
+
+  <complexType name="CopyNumberAlteration">
+    <complexContent>
+      <extension base="tns:Variant">
+        <choice minOccurs="0" maxOccurs="unbounded">
+          <element name="dna-evidence" type="tns:CopyNumberAlterationDnaEvidence"/>
+          <element name="rna-evidence" type="tns:CopyNumberAlterationRnaEvidence"/>
+        </choice>
+        <attribute name="copy-number" type="int"/>
+        <attribute name="gene" type="string" use="required"/>
+        <attribute name="number-of-exons" type="string" use="required"/>
+        <attribute name="position" type="string" use="required"/>
+        <attribute name="ratio" type="float" use="required"/>
+        <attribute name="type" type="tns:CopyNumberAlterationType" use="required"/>
+        <attribute name="segment-length" type="int"/>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <simpleType name="RearrangementType">
+    <restriction base="string">
+      <enumeration value="fusion"/>
+      <enumeration value="rearrangement"/>
+      <enumeration value="truncation"/>
+      <enumeration value="deletion"/>
+      <enumeration value="duplication"/>
+      <enumeration value="unknown"/>
+    </restriction>
+  </simpleType>
+
+  <complexType name="Rearrangement">
+    <complexContent>
+      <extension base="tns:Variant">
+        <choice minOccurs="0" maxOccurs="unbounded">
+          <element name="dna-evidence" type="tns:RearrangementDnaEvidence"/>
+          <element name="rna-evidence" type="tns:RearrangementRnaEvidence"/>
+        </choice>
+        <attribute name="type" type="tns:RearrangementType" use="required"/>
+        <attribute name="in-frame" type="tns:InFrameType"/>
+        <attribute name="targeted-gene" type="string" use="required"/>
+        <attribute name="other-gene" type="string"/>
+        <attribute name="pos1" type="string" use="required"/>
+        <attribute name="pos2" type="string"/>
+        <attribute name="supporting-read-pairs" type="int" use="required"/>
+        <attribute name="description" type="string" use="required"/>
+        <attribute name="percent-reads" type="tns:Percent"/>
+        <attribute name="allele-fraction" type="tns:Fraction"/>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <complexType name="Biomarker"/>
+
+  <simpleType name="MicrosatelliteInstabilityStatus">
+    <restriction base="string">
+      <enumeration value="MSI-H">
+        <annotation>
+          <documentation>MSI high</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="MSI-L">
+        <annotation>
+          <documentation>MSI low</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="MSS">
+        <annotation>
+          <documentation>MSI stable</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="unknown"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="TumorMutationBurdenStatus">
+    <restriction base="string">
+      <enumeration value="high">
+        <annotation>
+          <documentation>TMB high</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="intermediate">
+        <annotation>
+          <documentation>TMB intermediate</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="low">
+        <annotation>
+          <documentation>TMB low</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="unknown"/>
+    </restriction>
+  </simpleType>
+
+  <complexType name="MicrosatelliteInstability">
+    <complexContent>
+      <extension base="tns:Biomarker">
+        <attribute name="status" type="tns:MicrosatelliteInstabilityStatus" use="required"/>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <complexType name="TumorMutationBurden">
+    <complexContent>
+      <extension base="tns:Biomarker">
+        <attribute name="status" type="tns:TumorMutationBurdenStatus" use="required"/>
+        <attribute name="score" type="float" use="required"/>
+        <attribute name="unit" type="string" use="required"/>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <complexType name="VariantEvidence" abstract="true">
+    <attribute name="sample" type="string" use="required"/>
+  </complexType>
+
+  <complexType name="ShortVariantDnaEvidence">
+    <complexContent>
+      <extension base="tns:VariantEvidence"/>
+    </complexContent>
+  </complexType>
+
+  <complexType name="ShortVariantRnaEvidence">
+    <complexContent>
+      <extension base="tns:VariantEvidence"/>
+    </complexContent>
+  </complexType>
+
+  <complexType name="CopyNumberAlterationDnaEvidence">
+    <complexContent>
+      <extension base="tns:VariantEvidence"/>
+    </complexContent>
+  </complexType>
+
+  <complexType name="CopyNumberAlterationRnaEvidence">
+    <complexContent>
+      <extension base="tns:VariantEvidence"/>
+    </complexContent>
+  </complexType>
+
+  <complexType name="RearrangementDnaEvidence">
+    <complexContent>
+      <extension base="tns:VariantEvidence"/>
+    </complexContent>
+  </complexType>
+
+  <complexType name="RearrangementRnaEvidence">
+    <complexContent>
+      <extension base="tns:VariantEvidence"/>
+    </complexContent>
+  </complexType>
+
+  <complexType name="NonHumanDnaEvidence">
+    <complexContent>
+      <extension base="tns:VariantEvidence"/>
+    </complexContent>
+  </complexType>
+
+  <complexType name="NonHumanRnaEvidence">
+    <complexContent>
+      <extension base="tns:VariantEvidence"/>
+    </complexContent>
+  </complexType>
+
+  <simpleType name="NonHumanStatusEnum">
+    <restriction base="string">
+      <enumeration value="known"/>
+      <enumeration value="likely"/>
+      <enumeration value="unknown"/>
+      <enumeration value="NA"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="NucleicAcidTypeEnum">
+    <restriction base="string">
+      <enumeration value="DNA"/>
+      <enumeration value="RNA"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="NucleicAcidTypeList">
+    <list itemType="tns:NucleicAcidTypeEnum"/>
+  </simpleType>
+
+  <complexType name="NonHuman">
+    <choice minOccurs="0" maxOccurs="unbounded">
+      <element name="dna-evidence" type="tns:NonHumanDnaEvidence"/>
+      <element name="rna-evidence" type="tns:NonHumanRnaEvidence"/>
+    </choice>
+    <attribute name="organism" use="required"/>
+    <attribute name="reads-per-million" type="integer" use="required"/>
+    <attribute name="status" type="tns:NonHumanStatusEnum" use="required"/>
+  </complexType>
+
+</schema>
